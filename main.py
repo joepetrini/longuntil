@@ -6,8 +6,14 @@ app = Flask(__name__)
 
 
 @app.route('/')
-def hello_world():
-    return 'Hello World!'
+def home():
+    hours = range(1,13)
+
+    # Leading zero
+    z = lambda s: "0"+str(s) if s < 10 else str(s)
+    minutes = [z(m) for m in range(0,60)]
+
+    return render_template('home.html', hours=hours, minutes=minutes)
 
 
 @app.route('/sitemap.xml')
@@ -36,4 +42,6 @@ import socket
 if socket.gethostname()[-5:] == "-prod":
     application = app
 elif __name__ == '__main__':
+    from flaskext.lesscss import lesscss
+    lesscss(app)
     app.run(debug=True)

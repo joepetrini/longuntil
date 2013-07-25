@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block title %}LongUntil - Hours and minutes between two times{% endblock %}
+
+{% block onready %}
+$('.hour1').click(function() {
+	select_hour(this,1);
+});
+$('.min1').click(function() {
+	select_min(this,1);
+});
+$('.hour2').click(function() {
+	select_hour(this,2);
+});
+$('.min2').click(function() {
+	select_min(this,2);
+});
+$('.ampm').click(function() {
+	select_ampm(this);
+});
+{% endblock %}
+
+{% block content %}
+
+<div class="half">
+	<h1 class="text-center">From</h1>
+	<h1>Hour</h1>
+	<div id="hours1">
+		{% for h in hours %}
+		
+			<div class="block hour1"><div>{{h}}</div></div>
+				{% if h == 6 %}
+					<div class="block"></div>
+					<div id="am1" class="block ampm"><div>am</div></div>
+					<div class="clear"></div>
+				{% endif %}
+			{% endfor %}
+		
+
+		<div class="block"></div>
+		<div id="pm1" class="block ampm"><div>pm</div></div>
+
+	</div>
+	<div class="clear"></div>
+
+	<br><br>
+
+	<h1>Minutes</h1>
+	<div id="minutes1" class="minutes">
+	{% for m in minutes %}
+		<div class="block min1"><div>{{m}}</div></div>
+		{% if m[-1:] == '9' %}
+		<div class="clear"></div>
+		{% endif %}
+	{% endfor %}
+	</div>
+
+</div>
+
+<div class="half">
+	<h1 class="text-center">To</h1>
+	<h1>Hour</h1>
+	<div id="hours2">
+		{% for h in hours %}
+		
+			<div class="block hour2"><div>{{h}}</div></div>
+				{% if h == 6 %}
+					<div class="block"></div>
+					<div id="am2" class="block ampm"><div>am</div></div>
+					<div class="clear"></div>
+				{% endif %}
+			{% endfor %}
+		
+
+		<div class="block"></div>
+		<div id="pm2" class="block ampm"><div>pm</div></div>
+
+	</div>
+	<div class="clear"></div>
+
+	<br><br>
+
+	<h1>Minutes</h1>
+	<div id="minutes2" class="minutes">
+	{% for m in minutes %}
+		<div class="block min2"><div>{{m}}</div></div>
+		{% if m[-1:] == '9' %}
+		<div class="clear"></div>
+		{% endif %}
+	{% endfor %}
+	</div>
+
+</div>
+<div class="clear"
+<br><br>
+	<button id="button" class="btn btn-large btn-block btn-primary" disabled type="button" onclick="submit()">Submit</button>
+
+{% endblock %}
