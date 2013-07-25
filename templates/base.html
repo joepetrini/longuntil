@@ -2,17 +2,19 @@
 <html lang="en">
 <head>
     <title>{% block title %}{% endblock %}</title>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">    
-    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+    <meta name="keywords" content="{%block metakey %}{%endblock%}">
+    <meta name="description" content="{%block metadesc %}{%endblock%}" />
+
+    <link href="/static/longuntil.css" rel="stylesheet" />
+    <script type="text/javascript" src="/static/longuntil.js"></script>
+
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <link href="{{MEDIA_URL}}hopalert.css" rel="stylesheet" />
-    <script type="text/javascript" src="{{MEDIA_URL}}hopalert.js"></script>
-    <style>
-      body {
-        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-      }
-    </style>
+
+    <link rel="icon" href="/static/favicon.ico" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+
     <script type="text/javascript">
         $(document).ready(function() {   
         {% block onready %}{% endblock %}
@@ -20,26 +22,6 @@
     </script>
 </head>
 <body>
-
-<div class="navbar navbar-inverse navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container">
-      <div class="nav-collapse collapse">
-        <ul class="nav">
-          <li><a href="/backend">Alerts</a></li>
-          <li><a href="/backend/mappings">Mappings</a></li>
-        </ul>
-        <div class="pull-right">
-          {% if request.user.is_admin %}
-            <a href="louga">logout</a>
-          {% else %}
-            <a href="login">login</a>
-          {% endif %}
-        </div>
-      </div><!--/.nav-collapse -->
-    </div>
-  </div>
-</div>    
 
 <div class="container">
     {% block content %}{% endblock %}

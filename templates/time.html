@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Time between {{start}} and {{end}}{% endblock %}
+
+{% block content %}
+
+{% include '_adsense.html' %}
+
+<h1>Time between {{start}} and {{end}}</h1>
+
+<h3 style="color:#1d61d6">
+{% if diff.seconds/60 > 60 %}
+	{% if diff.seconds//3600 > 1 %}
+		{{diff.seconds//3600}} hours
+	{% else %}
+		{{diff.seconds//3600}} hour
+	{% endif %}
+{% else %}
+0 hours
+{% endif %}
+ and 
+{% if diff.seconds//60 - diff.seconds//3600*60 > 1 %}
+	{{diff.seconds//60 - diff.seconds//3600*60}} minutes
+{% else %}
+	{{diff.seconds//60 - diff.seconds//3600*60}} minute
+{% endif %}
+</h3>
+
+{% endblock %}
