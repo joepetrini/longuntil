@@ -31,5 +31,9 @@ def time_to_time(time):
     start, end, diff = get_delta_from_url(time)
     return render_template('time.html', diff=diff, start=start, end=end)
 
-if __name__ == '__main__':
+import socket
+# Deployed on server, run via uwsgi
+if socket.gethostname()[-5:] == "-prod":
+    application = app
+elif __name__ == '__main__':
     app.run(debug=True)
