@@ -4,9 +4,9 @@ h1 {font-size: 22px; line-height: 22px;}
 .container {margin:0 auto;width:940px;}
 div.block {float:left;width:38px; height:38px;text-align:center;cursor:pointer;}
 div.endfill {margin-right:35px;}
-div.block div {border:1px solid #ddd;width:100%;height:100%;line-heigh3t:36px}
+div.block div {border:1px solid #ddd;width:100%;height:100%;line-height:34px}
 
-.highlight {background-color: #ddf;}
+.highlight {background-color: #ddf;border:1px solid #00f;}
 
 
 div.minutes {width:450px;}
