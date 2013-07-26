@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: http://daycalc.appspot.com/sitemap.xml
