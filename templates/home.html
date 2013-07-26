@@ -18,6 +18,7 @@ $('.min2').click(function() {
 $('.ampm').click(function() {
 	select_ampm(this);
 });
+init();
 {% endblock %}
 
 {% block content %}
@@ -28,7 +29,7 @@ $('.ampm').click(function() {
 	<div id="hours1">
 		{% for h in hours %}
 		
-			<div class="block hour1"><div>{{h}}</div></div>
+			<div id="h1_{{h}}" class="block hour1"><div>{{h}}</div></div>
 				{% if h == 6 %}
 					<div class="block"></div>
 					<div id="am1" class="block ampm"><div>am</div></div>
@@ -36,11 +37,11 @@ $('.ampm').click(function() {
 				{% endif %}
 			{% endfor %}
 		
-
-		<div class="block"></div>
-		<div id="pm1" class="block ampm"><div>pm</div></div>
-
 	</div>
+	<div class="block"></div>
+	<div id="pm1" class="block ampm"><div>pm</div></div>
+
+	
 	<div class="clear"></div>
 
 	<br><br>
@@ -48,7 +49,7 @@ $('.ampm').click(function() {
 	<h1>Minutes</h1>
 	<div id="minutes1" class="minutes">
 	{% for m in minutes %}
-		<div class="block min1"><div>{{m}}</div></div>
+		<div id="m1_{{m}}" class="block min1"><div>{{m}}</div></div>
 		{% if m[-1:] == '9' %}
 		<div class="clear"></div>
 		{% endif %}
@@ -71,11 +72,11 @@ $('.ampm').click(function() {
 				{% endif %}
 			{% endfor %}
 		
-
-		<div class="block"></div>
-		<div id="pm2" class="block ampm"><div>pm</div></div>
-
 	</div>
+	<div class="block"></div>
+	<div id="pm2" class="block ampm"><div>pm</div></div>
+
+	
 	<div class="clear"></div>
 
 	<br><br>

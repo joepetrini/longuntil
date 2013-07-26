@@ -42,6 +42,4 @@ import socket
 if socket.gethostname()[-5:] == "-prod":
     application = app
 elif __name__ == '__main__':
-    from flaskext.lesscss import lesscss
-    lesscss(app)
     app.run(debug=True)
